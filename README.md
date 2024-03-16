@@ -1,2 +1,2 @@
-# SIIEPE-Resumo-LaTeX-UFPel
-Modelo de resumo para a SIIEPE em LaTeX - UFPel
+# Modelo de Resumo para a SIIEPE em LaTeX - UFPel
+Para compilar o modelo é necessário utilizar LuaLaTeX.
