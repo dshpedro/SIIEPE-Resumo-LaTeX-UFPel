@@ -1,0 +1,60 @@
+\usepackage[brazil]{babel}
+
+% header
+\usepackage{fancyhdr}
+% docx file had: header = 1.75cm; top = 1.25cm; image = (floating) 2cm
+% so the LaTeX top = 1.75cm + 1.25cm = 3cm
+
+% docx file had: footer = 1.29cm; bottom = 0.47cm
+% so the LaTeX bottom = 1.76cm
+\usepackage[left=3cm,top=3cm,right=2.5cm,bottom=1.76cm]{geometry}
+\pagestyle{fancy}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhf{} % removes section name from header
+\lhead{
+	\begin{tikzpicture}[remember picture,overlay]
+		\draw  let \p1=($(current page.north)-(current page header 
+		area.south)$),
+		\n1={veclen(\x1,\y1)} in
+		node [inner sep=0,outer sep=0,below right] 
+		at (current page.north 
+		west){\includegraphics[width=21cm,height=2cm]{images/cit.png}};
+	\end{tikzpicture}
+}
+
+% sections centering fontsize and uppercase
+\usepackage{sectsty}
+\sectionfont{\centering\fontsize{12}{15}\selectfont\MakeUppercase}
+
+% sections 1.(space)name
+\makeatletter % access to internal commands
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\ }
+\makeatother
+
+% spacing before and after sections
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{12pt}{12pt}
+
+% line spacing
+\usepackage{setspace}
+\singlespacing 
+
+% paragraph
+%\usepackage{parskip}
+\setlength{\parindent}{0.97cm}
+\usepackage{indentfirst} % indents the first paragraph after a section¨
+
+% font
+\usepackage{fontspec} % fonts
+\setmainfont{Arial} % sets the font
+
+% links
+\usepackage{hyperref}
+\urlstyle{same} % sets the font of \url to the same as the rest of the document
